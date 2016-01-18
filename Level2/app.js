@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+var logger = require('./logger');
+app.use(logger);
+
 //Example 1 not using middleware
 /*
 app.get('/', function(request, response){
