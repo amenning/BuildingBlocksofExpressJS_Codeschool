@@ -62,6 +62,11 @@ app.post('/blocks', parseUrlencoded, function(request, response){
 	response.status(201).json(formattedBlockName);
 });
 
+app.delete('/blocks/:name', function(request, response){
+	delete blocks[request.blockName];
+	response.sendStatus(200); //Automatically sets response body to "OK"; many packages, such as jQuery, cannot handle responses with empty bodies
+});
+
 app.listen(3000, function(){
 	console. log('Listening on port 3000');	
 });
